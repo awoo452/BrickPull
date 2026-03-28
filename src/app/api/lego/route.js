@@ -1,14 +1,21 @@
 const DEFAULT_API_BASE_URL = "https://lego-api-production-eb421958ee47.herokuapp.com";
 
-const buildApiUrl = (baseUrl) => {
+const buildApiUrl = (baseUrl, requestUrl) => {
+  const incoming = new URL(requestUrl);
   const apiUrl = new URL("/lego/sets/random", baseUrl);
   apiUrl.searchParams.set("persist", "false");
+
+  const theme = incoming.searchParams.get("theme");
+  if (theme) {
+    apiUrl.searchParams.set("theme", theme);
+  }
+
   return apiUrl;
 };
 
-export async function GET() {
+export async function GET(request) {
   const baseUrl = process.env.LEGO_API_BASE_URL || DEFAULT_API_BASE_URL;
-  const apiUrl = buildApiUrl(baseUrl);
+  const apiUrl = buildApiUrl(baseUrl, request.url);
 
   try {
     const response = await fetch(apiUrl, {

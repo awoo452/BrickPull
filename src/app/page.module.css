@@ -92,6 +92,19 @@
   gap: 12px;
 }
 
+.controlsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.themeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .cta {
   border: none;
   border-radius: 18px;
@@ -123,6 +136,27 @@
   outline-offset: 4px;
 }
 
+.toggle {
+  border-radius: 999px;
+  padding: 10px 16px;
+  border: 1px solid rgba(95, 60, 20, 0.2);
+  background: #fffdf2;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.toggle:hover {
+  border-color: rgba(95, 60, 20, 0.4);
+}
+
+.toggleActive {
+  background: #1b1715;
+  color: #fff9f2;
+  border-color: #1b1715;
+}
+
 .hint {
   color: var(--muted);
   font-size: 0.95rem;
@@ -150,6 +184,21 @@
 
 .error {
   color: #a62510;
+}
+
+.errorHint {
+  color: #7a2717;
+  font-size: 0.95rem;
+}
+
+.retry {
+  align-self: flex-start;
+  border-radius: 999px;
+  border: none;
+  padding: 10px 18px;
+  background: #1b1715;
+  color: #fff9f2;
+  cursor: pointer;
 }
 
 .skeletonCard {
@@ -276,6 +325,53 @@
   font-size: 1.05rem;
 }
 
+.history {
+  border-top: 1px dashed rgba(95, 60, 20, 0.2);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.historyLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.historyRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.historyChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #1b1715;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.historyId {
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  opacity: 0.8;
+}
+
+.historyName {
+  text-transform: capitalize;
+}
+
+.historyTheme {
+  opacity: 0.75;
+  font-size: 0.85rem;
+}
+
 @media (max-width: 720px) {
   .card {
     padding: 40px 28px;
@@ -289,6 +385,15 @@
   .cta {
     width: 100%;
     justify-content: center;
+  }
+
+  .themeRow {
+    width: 100%;
+  }
+
+  .toggle {
+    width: 100%;
+    text-align: center;
   }
 }
 

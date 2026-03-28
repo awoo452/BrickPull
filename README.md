@@ -34,6 +34,9 @@ ${LEGO_API_BASE_URL}/lego/sets/random?persist=false
 
 The Rails API handles the Rebrickable call and returns the set payload.
 
+Optional query parameter:
+- `theme=city|minecraft|creator` filters the random set to a specific theme.
+
 ## UI Features
 
 - One-button random set pulls.
