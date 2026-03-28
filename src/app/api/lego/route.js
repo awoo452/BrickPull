@@ -1,4 +1,4 @@
-const DEFAULT_API_BASE_URL = "https://lego-api-production.herokuapp.com";
+const DEFAULT_API_BASE_URL = "https://lego-api-production-eb421958ee47.herokuapp.com";
 
 const buildApiUrl = (baseUrl) => {
   const apiUrl = new URL("/lego/sets/random", baseUrl);

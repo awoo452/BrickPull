@@ -13,7 +13,7 @@ npm install
 2. (Optional) Point to a custom LEGO API base URL:
 
 ```bash
-export LEGO_API_BASE_URL="https://lego-api-production.herokuapp.com"
+export LEGO_API_BASE_URL="https://lego-api-production-eb421958ee47.herokuapp.com"
 ```
 
 3. Run the dev server:
