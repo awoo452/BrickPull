@@ -1,6 +1,6 @@
 # BrickPull (Next.js)
 
-A tiny Next.js app that pulls a random LEGO set from the Rebrickable API.
+A tiny Next.js app that pulls a random LEGO set from your Rails LEGO API.
 
 ## Local Dev
 
@@ -10,19 +10,13 @@ A tiny Next.js app that pulls a random LEGO set from the Rebrickable API.
 npm install
 ```
 
-2. Set the Rebrickable API key (required):
+2. (Optional) Point to a custom LEGO API base URL:
 
 ```bash
-export REBRICKABLE_API_KEY="your_key_here"
+export LEGO_API_BASE_URL="https://lego-api-production.herokuapp.com"
 ```
 
-3. (Optional) Point to a custom Rebrickable base URL:
-
-```bash
-export REBRICKABLE_API_BASE_URL="https://rebrickable.com/api/v3/lego"
-```
-
-4. Run the dev server:
+3. Run the dev server:
 
 ```bash
 npm run dev
@@ -35,10 +29,10 @@ Then open `http://localhost:3000`.
 The UI calls `GET /api/lego`, which proxies to:
 
 ```
-${REBRICKABLE_API_BASE_URL}/sets/
+${LEGO_API_BASE_URL}/lego/sets/random?persist=false
 ```
 
-The server picks a random set and returns a normalized payload.
+The Rails API handles the Rebrickable call and returns the set payload.
 
 ## UI Features
 
@@ -51,7 +45,6 @@ The server picks a random set and returns a normalized payload.
 - Create a new Amplify Hosting app from this repo.
 - Set the app root to `aws-amplify/BrickPull`.
 - Amplify should auto-detect Next.js.
-- Add the environment variable `REBRICKABLE_API_KEY`.
-- Optionally add `REBRICKABLE_API_BASE_URL` if you want a non-default host.
+- Add the environment variable `LEGO_API_BASE_URL` if you want a non-default host.
 
 If you want me to verify the latest Amplify UI steps, tell me and I will confirm against current docs.
