@@ -93,23 +93,20 @@ export default function Home() {
             >
               {loading ? "Fetching..." : "Fetch a LEGO set"}
             </button>
-            <div className={styles.themeRow}>
-              {themeOptions.map((option) => (
-                <button
-                  key={option.key}
-                  className={
-                    themeKey === option.key
-                      ? `${styles.toggle} ${styles.toggleActive}`
-                      : styles.toggle
-                  }
-                  type="button"
-                  aria-pressed={themeKey === option.key}
-                  onClick={() => setThemeKey(option.key)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+            <label className={styles.selectWrap}>
+              <span className={styles.selectLabel}>Theme</span>
+              <select
+                className={styles.select}
+                value={themeKey}
+                onChange={(event) => setThemeKey(event.target.value)}
+              >
+                {themeOptions.map((option) => (
+                  <option key={option.key} value={option.key}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
           <p className={styles.hint}>{hintText}</p>
         </section>
@@ -124,14 +121,7 @@ export default function Home() {
                   Rate limit hit. Wait a minute and try again.
                 </p>
               ) : null}
-              <button
-                type="button"
-                className={styles.retry}
-                onClick={fetchSet}
-                disabled={loading}
-              >
-                Retry
-              </button>
+              <p className={styles.errorHint}>Use the button above to retry.</p>
             </div>
           ) : null}
 
